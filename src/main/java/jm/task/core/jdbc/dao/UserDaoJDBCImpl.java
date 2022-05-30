@@ -12,12 +12,12 @@ import java.util.List;
 
 public class UserDaoJDBCImpl implements UserDao {
 
-    private static final String QUERY_CREATE_USER_TABLE = "create table if not exists katadb_1_1_3.users (id bigint not null auto_increment, name varchar(50) not null, lastname varchar(50) not null, age tinyint, primary key(id));";
-    private static final String QUERY_DROP_USER_TABLE = "drop table if exists katadb_1_1_3.users";
-    private static final String QUERY_SAVE_USER = "insert into katadb_1_1_3.users (name, lastname, age) value(?, ?, ?);";
-    private static final String QUERY_REMOVE_USER_BY_ID = "delete from katadb_1_1_3.users where id=?";
-    private static final String QUERY_GET_ALL_USERS = "select * from katadb_1_1_3.users";
-    private static final String QUERY_CLEAN_USERS_TABLE = "delete from katadb_1_1_3.users";
+    private static final String QUERY_CREATE_USER_TABLE = "create table if not exists users (id bigint not null auto_increment, name varchar(50) not null, lastname varchar(50) not null, age tinyint, primary key(id));";
+    private static final String QUERY_DROP_USER_TABLE = "drop table if exists users";
+    private static final String QUERY_SAVE_USER = "insert into users (name, lastname, age) value(?, ?, ?);";
+    private static final String QUERY_REMOVE_USER_BY_ID = "delete from users where id=?";
+    private static final String QUERY_GET_ALL_USERS = "select * from users";
+    private static final String QUERY_CLEAN_USERS_TABLE = "delete from users";
     private Connection connection = null;
 
     public UserDaoJDBCImpl() {
