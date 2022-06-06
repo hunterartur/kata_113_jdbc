@@ -27,17 +27,8 @@ public class UserDaoJDBCImpl implements UserDao {
 
         try {
             connection = Util.getConnection();
-            connection.setAutoCommit(false);
             connection.createStatement().executeUpdate(QUERY_CREATE_USER_TABLE);
-            connection.commit();
         } catch (SQLException e) {
-            if (connection != null) {
-                try {
-                    connection.rollback();
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                }
-            }
             e.printStackTrace();
         } finally {
             if (connection != null) {
@@ -54,17 +45,8 @@ public class UserDaoJDBCImpl implements UserDao {
 
         try {
             connection = Util.getConnection();
-            connection.setAutoCommit(false);
             connection.createStatement().executeUpdate(QUERY_DROP_USER_TABLE);
-            connection.commit();
         } catch (SQLException e) {
-            if (connection != null) {
-                try {
-                    connection.rollback();
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                }
-            }
             e.printStackTrace();
         } finally {
             if (connection != null) {
