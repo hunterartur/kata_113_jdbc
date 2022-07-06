@@ -26,8 +26,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void createUsersTable() {
 
         try {
-            connection = Util.getConnection();
-            connection.createStatement().executeUpdate(QUERY_CREATE_USER_TABLE);
+            Util.getConnection().createStatement().executeUpdate(QUERY_CREATE_USER_TABLE);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -44,8 +43,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void dropUsersTable() {
 
         try {
-            connection = Util.getConnection();
-            connection.createStatement().executeUpdate(QUERY_DROP_USER_TABLE);
+            Util.getConnection().createStatement().executeUpdate(QUERY_DROP_USER_TABLE);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
